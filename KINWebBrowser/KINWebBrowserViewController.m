@@ -185,11 +185,13 @@ static void *KINWebBrowserContext = &KINWebBrowserContext;
 
 - (void)loadURL:(NSURL *)URL {
     [self loadRequest:[NSURLRequest requestWithURL:URL]];
+    self.currentURL = URL;
 }
 
 - (void)loadURLString:(NSString *)URLString {
     NSURL *URL = [NSURL URLWithString:URLString];
     [self loadURL:URL];
+    self.currentURL = URL;
 }
 
 - (void)loadHTMLString:(NSString *)HTMLString {
